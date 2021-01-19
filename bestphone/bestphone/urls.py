@@ -24,7 +24,6 @@ urlpatterns = [
     path('filterform/', views.filterform),
     path('searchform/', views.searchform),
     path('search/', views.search),
-    path('display/', views.display),
     path('slidevalue/', views.slidevalue),
     path('filter/',views.filter),
 ]
