@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %} Search Results {% endblock %}
+
+{% block content %}
+    <div class="container" style="width: 50%">
+        <p></p>
+        <p>You searched for: <strong>{{ query }}</strong></p>
+
+        {% if phones %}
+            <p>Found {{ phones|length }} phones{{ phones|pluralize }}.</p>
+            <ul class="list-group">
+                {% for phone in phones %}
+                    <li class="list-group-item list-group-item-info">
+                        {{ phone.name }}
+                    </li>
+                {% endfor %}
+            </ul>
+        {% else %}
+            <p>No phones matched your search criteria.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

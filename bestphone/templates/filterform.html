@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+{% block title %} Search Phones {% endblock %}
+
+{% block content %}
+
+    <div class="container" style="width: 50%">
+        {% if errors %}
+            <ul>
+                {% for error in errors %}
+                    <li>{{ error }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+
+
+        <script>
+            function evalSlider()
+            {
+                var priceRangeVal = document.getElementById('pricemin').value;
+                document.getElementById('priceRangeMin').innerHTML = priceRangeVal;
+            }
+            function evalSliderM()
+            {
+                var priceRangeVal = document.getElementById('pricemax').value;
+                document.getElementById('priceRangeMax').innerHTML = priceRangeVal;
+            }
+        </script>
+
+
+        <form class="form-horizontal" action="/filter/" method="get">
+            You can give range here:
+            <div class="form-group">
+                <p>Set Minimum Price:</p>
+            <input type="range" id="pricemin" min="1010" max="3000" value="1010" name="minValue" onchange="evalSlider()"/>
+
+            <output id="priceRangeMin"></output>
+            </div>
+            <div class="form-group">
+                <p>Set Maksimum Price:</p>
+                <input type="range" id="pricemax" min="1000" max="3000" value="3000" name="maxValue" onchange="evalSliderM()"/>
+
+                <output id="priceRangeMax"></output>
+                </div>
+            <div class="form-group">
+                <input class="btn btn-warning" type="submit" value="Look">
+            </div>
+
+
+        </form>
+
+
+    </div>
+{% endblock %}
+
+{#    <div class="container" style="width: 50%">#}
+{#    <form action="/search/" method="get">#}
+{#        <div class="form-group">#}
+{#            <input class="form-control" type="text" name="q">#}
+{#            <input class="btn btn-primary" type="submit" value="Find">#}
+{#        </div>#}
+{#    </form>#}
+{#    </div>#}
